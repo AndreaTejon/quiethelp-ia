@@ -1,6 +1,10 @@
+import os
 from fastapi import FastAPI
 from pydantic import BaseModel
 import tensorflow as tf
+
+if not os.path.exists("modelo_urgencia/saved_model.pb"):
+    import train
 
 app = FastAPI()
 
@@ -12,9 +16,10 @@ class Message(BaseModel):
 
 @app.post("/predict")
 def predict(msg: Message):
-    text = msg.text.lower()
     result = infer(tf.constant([msg.text]))
     output = list(result.values())[0]
     score = float(output.numpy()[0][0])
 
-    return {"urgent": score >= 0.5}
+    return {
+        "urgent": score >= 0.5
+    }
