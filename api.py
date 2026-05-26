@@ -21,5 +21,5 @@ def predict(msg: Message):
     score = float(output.numpy()[0][0])
 
     return {
-        "urgent": score >= 0.8
+        "urgent": score >= 0.7
     }
