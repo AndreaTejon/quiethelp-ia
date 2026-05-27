@@ -15,7 +15,7 @@ class Message(BaseModel):
     text: str
 
 PALABRAS_FUERZA_URGENTE = [
-    "morir", "matar", "suicidio", "pastillas", "cortarme", "cortar",
+    "morir", "matar", "suicidio", "suicidarme", "suicidar", "pastillas", "cortarme", "cortar",
     "sangre", "quitarme la vida", "acabar conmigo", "tirarme",
     "ahogarme", "no despertar", "última noche", "despedida", "adiós",
     "hacerme daño", "terminar con todo", "desaparecer", "no quiero seguir"
